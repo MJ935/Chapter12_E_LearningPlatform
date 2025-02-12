@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import Subject, Course, Module
 
-
+# ééexplanation 
 @admin.register(Subject)
 class SubjectAdmin(admin.ModelAdmin):
     list_display = ['title', 'slug']
