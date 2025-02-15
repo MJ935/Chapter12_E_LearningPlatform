@@ -1,7 +1,6 @@
 from django.core.exceptions import ObjectDoesNotExist
-from django.db import models 
-from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
+
 
 class OrderField(models.PositiveIntegerField):
     def __init__(self, for_fields=None, *args, **kwargs):
@@ -21,7 +20,7 @@ class OrderField(models.PositiveIntegerField):
                         for field in self.for_fields
                     }
                     qs = qs.filter(**query)
-                    # get the order of the last item
+                # get the order of the last item
                 last_item = qs.latest(self.attname)
                 value = getattr(last_item, self.attname) + 1
             except ObjectDoesNotExist:
